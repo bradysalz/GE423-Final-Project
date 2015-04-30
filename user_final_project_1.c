@@ -171,7 +171,7 @@ char is_avoiding_obstacle = 0;
 
 // Object following
 float slope = 0;
-float slopeThreshold = 5;
+float slopeThreshold = 20;
 char newObs = 1; // 1 = newObj found, 2 = lower flag when departed from goal line, 3 = raise flag when re-entering goal line
 
 pose UpdateOptitrackStates(pose localROBOTps, int * flag);
@@ -413,8 +413,8 @@ Void main()
 
 	robotdest[0].x = -5;	robotdest[0].y = -3; // Point 1
 	robotdest[1].x = 0;		robotdest[1].y = -1; // Home base (enter course)
-	robotdest[2].x = 0;		robotdest[2].y = 11; // Point 5
-//	robotdest[2].x = 3;		robotdest[2].y = 7; // Point 2
+//	robotdest[2].x = 0;		robotdest[2].y = 11; // Point 5
+	robotdest[2].x = 3;		robotdest[2].y = 7; // Point 2
 	robotdest[3].x = -3;	robotdest[3].y = 7; // Point 3
 	robotdest[4].x = 0;		robotdest[4].y = -1; // Home base (exit course)
 	robotdest[5].x = 5;		robotdest[5].y = -3; // Point 4
@@ -652,7 +652,7 @@ void RobotControl(void) {
 		}
 
 		float rightMin = LADARdistance[54];
-		for(cnt = 53; cnt < 75; cnt++)
+		for(cnt = 53; cnt < 65; cnt++)
 		{
 			if (LADARdistance[cnt] < rightMin)
 				rightMin = LADARdistance[cnt];
